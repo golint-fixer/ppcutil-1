@@ -5,10 +5,10 @@
 package ppcutil_test
 
 import (
-	"github.com/mably/btcnet"
+	"github.com/ppcsuite/btcnet"
 	"github.com/mably/ppcd/database"
 	_ "github.com/mably/ppcd/database/ldb" // init only
-	"github.com/mably/ppcutil"
+	"github.com/ppcsuite/ppcutil"
 	"testing"
 )
 

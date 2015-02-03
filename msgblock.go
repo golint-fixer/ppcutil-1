@@ -5,7 +5,7 @@
 package ppcutil
 
 import (
-	"github.com/mably/btcwire"
+	"github.com/ppcsuite/btcwire"
 )
 
 // IsMsgBlockProofOfStake checks if MsgBlock is of proof of stake type

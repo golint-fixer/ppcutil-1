@@ -5,7 +5,7 @@
 package ppcutil
 
 import (
-	"github.com/mably/btcutil"
+	"github.com/ppcsuite/btcutil"
 )
 
 // BlockUnixTime gets block timestamp in unix time

@@ -7,9 +7,9 @@ package ppcutil
 import (
 	"github.com/mably/ppcd/blockchain"
 	"github.com/mably/ppcd/database"
-	"github.com/mably/btcnet"
-	"github.com/mably/btcutil"
-	"github.com/mably/btcwire"
+	"github.com/ppcsuite/btcnet"
+	"github.com/ppcsuite/btcutil"
+	"github.com/ppcsuite/btcwire"
 	"math/big"
 
 	"compress/bzip2"
