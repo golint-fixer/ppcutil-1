@@ -5,12 +5,13 @@
 package ppcutil
 
 import (
-	"github.com/mably/ppcd/blockchain"
-	"github.com/mably/ppcd/database"
+	"math/big"
+
 	"github.com/ppcsuite/btcnet"
 	"github.com/ppcsuite/btcutil"
 	"github.com/ppcsuite/btcwire"
-	"math/big"
+	"github.com/ppcsuite/ppcd/blockchain"
+	"github.com/ppcsuite/ppcd/database"
 
 	"compress/bzip2"
 	"compress/gzip"

@@ -5,11 +5,12 @@
 package ppcutil_test
 
 import (
-	"github.com/ppcsuite/btcnet"
-	"github.com/mably/ppcd/database"
-	_ "github.com/mably/ppcd/database/ldb" // init only
-	"github.com/ppcsuite/ppcutil"
 	"testing"
+
+	"github.com/ppcsuite/btcnet"
+	"github.com/ppcsuite/ppcd/database"
+	_ "github.com/ppcsuite/ppcd/database/ldb" // init only
+	"github.com/ppcsuite/ppcutil"
 )
 
 func TestPoWTargetCalculation(t *testing.T) {
