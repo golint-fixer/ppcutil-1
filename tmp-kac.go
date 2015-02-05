@@ -9,9 +9,9 @@ import (
 
 	"github.com/ppcsuite/btcnet"
 	"github.com/ppcsuite/btcutil"
-	"github.com/ppcsuite/ppcd/wire"
 	"github.com/ppcsuite/ppcd/blockchain"
 	"github.com/ppcsuite/ppcd/database"
+	"github.com/ppcsuite/ppcd/wire"
 
 	"compress/bzip2"
 	"compress/gzip"
@@ -24,7 +24,7 @@ import (
 )
 
 var (
-	zeroSha               = btcwire.ShaHash{}
+	zeroSha               = wire.ShaHash{}
 	initialHashTargetBits = uint32(0x1c00ffff)
 	stakeTargetSpacing    = int64(10 * 60) // 10 minutes
 	targetSpacingWorkMax  = int64(stakeTargetSpacing * 12)
