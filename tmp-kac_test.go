@@ -7,14 +7,14 @@ package ppcutil_test
 import (
 	"testing"
 
-	"github.com/ppcsuite/btcnet"
+	"github.com/ppcsuite/ppcd/chaincfg"
 	"github.com/ppcsuite/ppcd/database"
 	_ "github.com/ppcsuite/ppcd/database/ldb" // init only
 	"github.com/ppcsuite/ppcutil"
 )
 
 func TestPoWTargetCalculation(t *testing.T) {
-	params := btcnet.MainNetParams
+	params := chaincfg.MainNetParams
 	db, err := database.OpenDB("leveldb", "testdata/db_512")
 	if err != nil {
 		t.Errorf("db error %v", err)

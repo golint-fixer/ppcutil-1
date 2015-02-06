@@ -7,9 +7,9 @@ package ppcutil
 import (
 	"math/big"
 
-	"github.com/ppcsuite/btcnet"
 	"github.com/ppcsuite/btcutil"
 	"github.com/ppcsuite/ppcd/blockchain"
+	"github.com/ppcsuite/ppcd/chaincfg"
 	"github.com/ppcsuite/ppcd/database"
 	"github.com/ppcsuite/ppcd/wire"
 
@@ -64,7 +64,7 @@ func getLastBlockIndex(db database.Db, last *btcutil.Block, proofOfStake bool) (
 
 // GetNextTargetRequired TODO(kac-) golint
 // https://github.com/ppcoin/ppcoin/blob/v0.4.0ppc/src/main.cpp#L902
-func GetNextTargetRequired(params btcnet.Params, db database.Db, last *btcutil.Block, proofOfStake bool) (compact uint32) {
+func GetNextTargetRequired(params chaincfg.Params, db database.Db, last *btcutil.Block, proofOfStake bool) (compact uint32) {
 	if last == nil {
 		return params.PowLimitBits // genesis block
 	}
