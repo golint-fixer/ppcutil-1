@@ -38,42 +38,18 @@ func minInt(a int64, b int64) int64 {
 	return b
 }
 
-// https://github.com/ppcoin/ppcoin/blob/v0.4.0ppc/src/main.cpp#L894
-// ppc: find last block index up to pindex
-func getLastBlockIndex(db database.Db, last *btcutil.Block, proofOfStake bool) (block *btcutil.Block) {
-	block = last
-	for true {
-		if block == nil {
-			break
-		}
-		//TODO dirty workaround, ppcoin doesn't point to genesis block
-		if block.Height() == 0 {
-			return nil
-		}
-		prevExists, err := db.ExistsSha(&block.MsgBlock().Header.PrevBlock)
-		if err != nil || !prevExists {
-			break
-		}
-		if block.MsgBlock().IsProofOfStake() == proofOfStake {
-			break
-		}
-		block, _ = db.FetchBlockBySha(&block.MsgBlock().Header.PrevBlock)
-	}
-	return block
-}
-
 // GetNextTargetRequired TODO(kac-) golint
 // https://github.com/ppcoin/ppcoin/blob/v0.4.0ppc/src/main.cpp#L902
 func GetNextTargetRequired(params chaincfg.Params, db database.Db, last *btcutil.Block, proofOfStake bool) (compact uint32) {
 	if last == nil {
 		return params.PowLimitBits // genesis block
 	}
-	prev := getLastBlockIndex(db, last, proofOfStake)
+	prev := GetLastBlockIndex(db, last, proofOfStake)
 	if prev == nil {
 		return initialHashTargetBits // first block
 	}
 	block, _ := db.FetchBlockBySha(&prev.MsgBlock().Header.PrevBlock)
-	prevPrev := getLastBlockIndex(db, block, proofOfStake)
+	prevPrev := GetLastBlockIndex(db, block, proofOfStake)
 	if prevPrev == nil {
 		return initialHashTargetBits // second block
 	}
